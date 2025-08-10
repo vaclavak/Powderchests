@@ -22,6 +22,9 @@ An open source Hypixel Skyblock mod made for powder grinding.
 
 Contributions are welcome! Feel free to open issues or submit pull requests.
 
+## Important
+The counter does NOT save between sessions! If you quit minecraft it will reset!
+
 ## License
 
 This project is licensed under the [Apache License 2.0](LICENSE).
