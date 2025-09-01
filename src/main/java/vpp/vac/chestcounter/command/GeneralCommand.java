@@ -25,19 +25,19 @@ public class GeneralCommand implements ICommand{
 
 	@Override
 	public String getCommandName() {
-		return "Chestcounter";
+		return "MetaRipper";
 	}
 
 	@Override
 	public String getCommandUsage(ICommandSender sender) {
-		return "/cc <reset|check|savecounter <directory>|loadcounter <directory>>";
+		return "/mr <reset|check|savecounter <directory>|loadcounter <directory>>";
 	}
 
 	@Override
 	public List<String> getCommandAliases() {
 		List<String> commandAliases = new ArrayList();
-		commandAliases.add("chestcount");
-		commandAliases.add("cc");
+		commandAliases.add("metaripper");
+		commandAliases.add("mr");
 		return commandAliases;
 	}
 	
