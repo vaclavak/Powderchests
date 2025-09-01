@@ -1,11 +1,11 @@
 [
 {
-  "modid": "powderchests",
-  "name": "Powderchests",
-  "description": "Mod made for powder grinding",
+  "modid": "metaripper",
+  "name": "MetaRipper",
+  "description": "MetaRipper mod",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "url": "https://modrinth.com/mod/powderchests",
+  "url": "",
   "updateUrl": "",
   "authorList": ["vaclavak"],
   "logoFile": "",

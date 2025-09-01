@@ -11,15 +11,15 @@ import vpp.vac.chestcounter.command.GeneralCommand;
 @Mod(modid = Main.MODID, version = Main.VERSION)
 public class Main
 {
-    public static final String MODID = "chestcounter";
+    public static final String MODID = "metaripper";
     public static final String VERSION = "1.0";
-    public static final String PREFIX = "[CHESTCOUNTER] ";
+    public static final String PREFIX = "[METARIPPER] ";
     public static int count;
     
     @EventHandler
     public void init(FMLInitializationEvent event)
     {   	
-    	System.out.println(PREFIX + "ChestCounter Mod by vaclavak");
+    	System.out.println(PREFIX + "MetaRipper Mod by vaclavak");
     	System.out.println(PREFIX + "Version: " + VERSION);
         System.out.println(PREFIX + "[INIT] INJECTION COMPLETE!");    
         MinecraftForge.EVENT_BUS.register(new ChatReceiver());
