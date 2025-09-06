@@ -6,6 +6,7 @@ An open source Hypixel Skyblock mod made for powder grinding.
 
 - Enhances powder grinding experience in Hypixel Skyblock
 - Lightweight and easy to use
+- **Automatic configuration persistence** - Display settings are now automatically saved and loaded between sessions
 
 ## Installation
 
@@ -19,16 +20,26 @@ An open source Hypixel Skyblock mod made for powder grinding.
 - /cc reset -> Resets the chest counter.
 - /cc savecounter <directory> -> Saves the current counter value to a .txt file in the specified directory.
 - /cc loadcounter <directory> -> Loads a previously saved counter value from a .txt file in the specified directory.
-- /cc display on -> Enables on-screen display of the chest counter.
-- /cc display off -> Disables on-screen display of the chest counter.
-- /cc display <X> <Y> -> Sets the position of the on-screen counter display (X and Y coordinates).
+- /cc display on -> Enables on-screen display of the chest counter. *(Settings automatically saved)*
+- /cc display off -> Disables on-screen display of the chest counter. *(Settings automatically saved)*
+- /cc display <X> <Y> -> Sets the position of the on-screen counter display (X and Y coordinates). *(Settings automatically saved)*
 
 ## Contributing
 
 Contributions are welcome! Feel free to open issues or submit pull requests.
 
+## Configuration
+
+The mod now automatically saves your display preferences (position and on/off state) in a configuration file located at:
+`.minecraft/Powderchests/config.txt`
+
+This means your display settings will persist between Minecraft sessions. The configuration is automatically:
+- **Loaded** when the mod starts up
+- **Saved** whenever you change display settings using the `/cc display` commands
+- **Reset to defaults** if the config file is missing or corrupted
+
 ## Important
-The counter does NOT save between sessions! If you quit minecraft it will reset!
+The **chest counter value** does NOT save between sessions! If you quit Minecraft, the counter will reset to 0. However, your **display settings** (position and on/off state) are now automatically saved and will be restored when you restart the game.
 
 ## License
 

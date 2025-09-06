@@ -7,6 +7,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import vpp.vac.chestcounter.command.GeneralCommand;
+import vpp.vac.chestcounter.config.ConfigManager;
 import vpp.vac.chestcounter.render.DisplayRenderer;
 
 @Mod(modid = Main.MODID, version = Main.VERSION)
@@ -29,5 +30,8 @@ public class Main
         MinecraftForge.EVENT_BUS.register(new ChatReceiver());
         MinecraftForge.EVENT_BUS.register(new DisplayRenderer());
         ClientCommandHandler.instance.registerCommand(new GeneralCommand());
+        
+        // Load configuration from file
+        ConfigManager.loadConfig();
     }
 }
