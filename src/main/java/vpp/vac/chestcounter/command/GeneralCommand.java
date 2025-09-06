@@ -14,6 +14,7 @@ import net.minecraft.command.ICommandSender;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
+import vpp.vac.chestcounter.config.ConfigManager;
 import vpp.vac.chestcounter.main.Main;
 
 public class GeneralCommand implements ICommand{
@@ -142,9 +143,11 @@ public class GeneralCommand implements ICommand{
 			if(args[1].equalsIgnoreCase("on")) {
 				Main.displayEnabled = true;
 				sender.addChatMessage(new ChatComponentText(EnumChatFormatting.GREEN + Main.PREFIX + "Display enabled! Counter will now be shown on screen."));
+				ConfigManager.saveConfig();
 			} else if(args[1].equalsIgnoreCase("off")) {
 				Main.displayEnabled = false;
 				sender.addChatMessage(new ChatComponentText(EnumChatFormatting.GREEN + Main.PREFIX + "Display disabled!"));
+				ConfigManager.saveConfig();
 			} else {
 				// Try to parse as coordinates
 				if(args.length < 3) {
@@ -164,6 +167,7 @@ public class GeneralCommand implements ICommand{
 					Main.displayX = x;
 					Main.displayY = y;
 					sender.addChatMessage(new ChatComponentText(EnumChatFormatting.GREEN + Main.PREFIX + "Display position updated to (" + x + ", " + y + ")"));
+					ConfigManager.saveConfig();
 				} catch (NumberFormatException e) {
 					sender.addChatMessage(new ChatComponentText(EnumChatFormatting.RED + Main.PREFIX + "Error, invalid coordinates. Please use numbers."));
 				}
