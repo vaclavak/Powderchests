@@ -30,7 +30,7 @@ public class GeneralCommand implements ICommand{
 
 	@Override
 	public String getCommandUsage(ICommandSender sender) {
-		return "/cc <reset|check|savecounter <directory>|loadcounter <directory>>";
+		return "/cc <reset|check|savecounter <directory>|loadcounter <directory>|display <on/off>|display <x> <y>>";
 	}
 
 	@Override
@@ -133,6 +133,41 @@ public class GeneralCommand implements ICommand{
 			} catch (NumberFormatException e) {
 				sender.addChatMessage(new ChatComponentText(EnumChatFormatting.RED + Main.PREFIX + "Error, invalid number format in counter file"));
 			}
+		}else if(args[0].equalsIgnoreCase("display")) {
+			if(args.length < 2) {
+				sender.addChatMessage(new ChatComponentText(EnumChatFormatting.RED + Main.PREFIX + "Error, please specify 'on', 'off', or coordinates (x y)"));
+				return;
+			}
+			
+			if(args[1].equalsIgnoreCase("on")) {
+				Main.displayEnabled = true;
+				sender.addChatMessage(new ChatComponentText(EnumChatFormatting.GREEN + Main.PREFIX + "Display enabled! Counter will now be shown on screen."));
+			} else if(args[1].equalsIgnoreCase("off")) {
+				Main.displayEnabled = false;
+				sender.addChatMessage(new ChatComponentText(EnumChatFormatting.GREEN + Main.PREFIX + "Display disabled!"));
+			} else {
+				// Try to parse as coordinates
+				if(args.length < 3) {
+					sender.addChatMessage(new ChatComponentText(EnumChatFormatting.RED + Main.PREFIX + "Error, please specify both x and y coordinates"));
+					return;
+				}
+				
+				try {
+					int x = Integer.parseInt(args[1]);
+					int y = Integer.parseInt(args[2]);
+					
+					if(x < 0 || y < 0) {
+						sender.addChatMessage(new ChatComponentText(EnumChatFormatting.RED + Main.PREFIX + "Error, coordinates must be positive"));
+						return;
+					}
+					
+					Main.displayX = x;
+					Main.displayY = y;
+					sender.addChatMessage(new ChatComponentText(EnumChatFormatting.GREEN + Main.PREFIX + "Display position updated to (" + x + ", " + y + ")"));
+				} catch (NumberFormatException e) {
+					sender.addChatMessage(new ChatComponentText(EnumChatFormatting.RED + Main.PREFIX + "Error, invalid coordinates. Please use numbers."));
+				}
+			}
 		}else {
 			sender.addChatMessage(new ChatComponentText(EnumChatFormatting.RED + Main.PREFIX + "Error, invalid argument"));
 		}
@@ -152,6 +187,7 @@ public class GeneralCommand implements ICommand{
 		TabList.add("checkcounter");
 		TabList.add("savecounter");
 		TabList.add("loadcounter");
+		TabList.add("display");
 		return TabList;		
 	}
 
