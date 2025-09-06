@@ -19,6 +19,9 @@ An open source Hypixel Skyblock mod made for powder grinding.
 - /cc reset -> Resets the chest counter.
 - /cc savecounter <directory> -> Saves the current counter value to a .txt file in the specified directory.
 - /cc loadcounter <directory> -> Loads a previously saved counter value from a .txt file in the specified directory.
+- /cc display on -> Enables on-screen display of the chest counter.
+- /cc display off -> Disables on-screen display of the chest counter.
+- /cc display <X> <Y> -> Sets the position of the on-screen counter display (X and Y coordinates).
 
 ## Contributing
 
