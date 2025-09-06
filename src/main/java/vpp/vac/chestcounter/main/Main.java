@@ -13,7 +13,7 @@ import vpp.vac.chestcounter.render.DisplayRenderer;
 public class Main
 {
     public static final String MODID = "chestcounter";
-    public static final String VERSION = "1.0";
+    public static final String VERSION = "1.3";
     public static final String PREFIX = "[CHESTCOUNTER] ";
     public static int count;
     public static boolean displayEnabled = false;
